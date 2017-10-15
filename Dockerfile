@@ -8,3 +8,5 @@ RUN phpize
 RUN ./configure
 RUN make
 RUN make install
+COPY ./redis.ini /usr/local/etc/php/conf.d/redis.ini
+

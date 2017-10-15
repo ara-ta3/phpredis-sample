@@ -3,4 +3,12 @@ version: '2'
 services:
     web:
         build: .
-
+        links:
+            - redis
+        volumes:
+            - $PWD:/opt/app
+        command: 'sh -c "while true; do sleep 1; done"'
+    redis:
+        image: 'redis:latest'
+        ports:
+            - '6379:6379'
